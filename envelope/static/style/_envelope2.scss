@@ -1,0 +1,203 @@
+@import 'font';
+
+$bg-color: #1f2133;
+$envelope-color: #F8AA7F;
+$lid-color: #f7a071;
+$cover-color: #FAC2A3;
+$cover-side-color: #FFCDB2;
+$heart-color: #d12511;
+$shadow-color: #e8c5d0;
+$card-color: white;
+$font: $FONT;
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    align-items: center;
+    justify-content: center;
+
+    .container-envelope2 {
+        position: relative;
+
+        .envelope2 {
+            position: relative;
+            background: $envelope-color;
+            height: 30vmin;
+            width: 48vmin;
+        }
+
+        .envelope2{
+            animation: float 2.7s ease-in-out infinite;
+        }
+        
+        .card2 {
+            position: absolute;
+            background: $card-color;
+            height: 25vmin;
+            width: 43vmin;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            left: 2.5vmin;
+            top: 0;
+            animation: slide-rev 0.2s ease-out;
+
+            h1 {
+                padding: 15px;
+                font-size: 1em;
+                text-align: center;
+            }
+        }
+
+        .cover2 {
+            position: absolute;
+            height: 0;
+            width: 0;
+            border-bottom: 15vmin solid $cover-color;
+            border-left: 24vmin solid transparent;
+            border-right: 24vmin solid transparent;
+            top: 15vmin;
+            z-index: 3;
+
+            &::after {
+                position: absolute;
+                content: '';
+                border-left: 24.5vmin solid $cover-side-color;
+                border-bottom: 15vmin solid transparent;
+                border-top: 15vmin solid transparent;
+                top: -15vmin;
+                left: -24vmin;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                border-right: 24.5vmin solid $cover-side-color;
+                border-bottom: 15vmin solid transparent;
+                border-top: 15vmin solid transparent;
+                top: -15vmin;
+                left: -0.5vmin;
+            }
+        }
+
+        .lid2 {
+            position: absolute;
+            height: 0;
+            width: 0;
+            border-top: 15vmin solid $lid-color;
+            border-left: 24vmin solid transparent;
+            border-right: 24vmin solid transparent;
+            top: 0;
+            transform-origin: top;
+            animation: open-rev 2s;
+        }
+
+        &:hover {
+            .lid2 {
+                animation: open 0.5s forwards;
+            }
+            .card2 {
+                animation: slide 0.2s 0.5s forwards;
+            }
+        }
+
+        .heart2{
+            position: relative;
+            width: 5vmin;
+            height: 4vmin;
+            top: 2vmin;
+            left: 0.6vmin;
+
+            &::before, &::after{
+                position: absolute;
+                content: '';
+                left: 2.5vmin;
+                top: 0;
+                width: 2.5vmin;
+                height: 4vmin;
+                background-color: #d12511;
+                border-radius: 2.5vmin 2.5vmin 0 0;
+                transform: rotate(-45deg);
+                transform-origin: 0 100%;
+            }
+            &::after{
+                left: 0;
+                transform: rotate(45deg);
+                transform-origin: 100% 100%;
+            }
+
+        }
+
+        .shadow2 {
+            position: absolute;
+            top: 35vmin;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            opacity: 0.7;
+            height: 2vmin;
+            width: 48vmin;
+            background: rgba(163, 213, 242, 0.25);
+            animation: float-shadow 2.7s ease-in-out infinite;
+        }
+    }
+
+    #old {
+        width: 30vw;
+        height: 100px;
+    }
+}
+
+// Animasi Floating Hanya untuk Amplop (Envelope)
+@keyframes float-shadow {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.9);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.7;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes open {
+    100% {
+        transform: rotatex(180deg);
+    }
+}
+
+@keyframes slide {
+    100% {
+        transform: translateY(-15vmin);
+        z-index: 2;
+    }
+}
+
+@keyframes open-rev {
+    from {
+        transform: rotatex(-180deg);
+    }
+}
+
+@keyframes slide-rev {
+    from {
+        transform: translateY(-15vmin);
+    }
+}

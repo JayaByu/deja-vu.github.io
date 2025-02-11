@@ -1,0 +1,269 @@
+@import 'font';
+
+* {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ff93a6;
+    overflow: hidden;
+}
+.bungkus-coklat{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    // height: 40vh;
+    // width: 20vw;
+    cursor: pointer;
+
+    &::before, &::after{
+        content: "";
+        position: absolute;
+    }
+
+    &::before{
+        width: 250px;
+        height: 250px;
+        background-color: #4B301B;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+        box-shadow: 15px 15px #392312;
+    }
+
+    &::after{
+        width: 100px;
+        height: 102px;
+        background-color: #2B0900;
+        top: 41px;
+        left: 40px;
+        box-shadow: 110px 0 #2B0900, 110px 110px #2B0900, 0 110px #2B0900;
+    }
+}
+
+.coklat{
+    position: absolute;
+    z-index: 1;
+
+    .atas-kiri{
+        top: 55px;
+        left: 48px;
+        &:hover{
+            transform: rotate(25deg);
+        }
+        &:active{
+            opacity: 0;
+        }
+    }
+    .bawah-kanan{
+        left: 158px;
+        top: 165px;
+        &:hover{
+            transform: rotate(25deg);
+        }
+        &:active{
+            opacity: 0;
+        }
+    }
+    .atas-kiri, .bawah-kanan{
+        position: absolute;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #D12511;
+        box-shadow: 35px 0 #D12511;
+        filter: drop-shadow(2px 2px #AB1503) drop-shadow(-2px 2px #AB1503);
+        transition: .2s;
+        &::before,&::after{
+            position: absolute;
+            content: "";
+        }
+        &::before{
+            width: 50px;
+            height: 50px;
+            background-color: #D12511;
+            transform: rotate(-45deg);
+            top: 17px;
+            left: 18px;
+        }
+        &::after{
+            border-radius: 50%;
+            background-color: rgba(255,255,255,.3);
+            width: 17px;
+            height: 15px;
+            top: 7px;
+            left: 58px;
+        }
+    }
+
+    .atas-kanan{
+        position: absolute;
+        border-radius: 50%;
+        background-color: #FEE8C0;
+        width: 80px;
+        height: 80px;
+        left: 160px;
+        top: 50px;
+        filter: drop-shadow(2px 2px #CEB587) drop-shadow(-2px 2px #CEB587);
+        transition: .2s;
+        overflow: hidden;
+
+        &::before,&::after{
+            content: "";
+            position: absolute;
+            background-color: #93522B;
+            width: 100px;
+            height: 5px;
+            left: -5px;
+        }
+  
+        &::before{
+            top: 65px;
+            transform: rotate(-35deg);
+            box-shadow: 0 -15px #93522B;
+        }
+        &::after{
+            top: 0;
+            transform: rotate(-15deg);
+            box-shadow: 0 17px #93522B, 0 30px #93522B;
+        }
+        &:hover{
+            transform: rotate(25deg);
+        }
+        &:active{
+            opacity: 0;
+        }
+    }
+
+    .bawah-kiri{
+        position: absolute;
+        border-radius: 50%;
+        background-color: #503520;
+        width: 80px;
+        height: 80px;
+        top: 162px;
+        left: 50px;
+        filter: drop-shadow(2px 2px #342010) drop-shadow(-2px 2px #342010);
+        overflow: hidden;
+        transition: .2s;
+
+        &::before,&::after{
+            content: "";
+            position: absolute;
+            background-color: #FDE7C7;
+            width: 100px;
+            height: 4px;
+            left: -5px;
+        }
+        &:hover{
+            transform: rotate(25deg);
+        }
+        &:active{
+            opacity: 0;
+        }
+        &::before{
+            top: 65px;
+            transform: rotate(-35deg);
+            box-shadow: 0 -15px #FDE7C7;
+        }
+        &::after{
+            top: 0;
+            transform: rotate(-15deg);
+            box-shadow: 0 15px #FDE7C7, 0 30px #FDE7C7;
+        }
+    }
+}
+.bungkus-bawah{
+    position: absolute;
+    background-color: #392312;
+    width: 24px;
+    height: 30px;
+    transform: rotate(45deg);
+    left: 259px;
+    top: 29px;
+    z-index: -1;
+    box-shadow: -1px 320px #392312;
+}
+
+.cover {
+    position: absolute;
+    background-color: #cf2611;
+    width:235px;
+    height:235px;
+    border: 7px solid #ae1605;
+    z-index:2;
+    top:25px;
+    left:25px;
+    transform-origin: top;
+    transition: .5s;
+    overflow: hidden;
+
+    &::before{
+        position: absolute;
+        content: "Bayu O'Donuts >.<";
+        color: #FFEAD2;
+        font-family: $FONT;
+        padding: 17px 25px 17px 25px;
+        font-size: 40px;
+        text-align: center;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        border: 5px double;
+    }
+
+    &::after{
+        position: absolute;
+        content: "";
+        background-color: #FFEAD2;
+        height: 15px;
+        width: 170px;
+        left: -30px;
+        transform: rotate(-45deg);
+        box-shadow: -13px 240px #FFEAD2;
+    }
+}
+
+.bungkus-coklat:hover .cover{
+    transform: rotateX(170deg);
+    box-shadow: 5px -5px 20px rgba(0,0,0,.5);
+
+    &::before{
+        display: none;
+    }
+}
+
+#ji, #ro, #lu, #pat{
+    position: absolute;
+    width: 110%;
+    color: #eeee;
+    font-family: $FONT;
+    font-size: 25px;
+    transition: .1s;
+    display: none;
+}
+
+#ji{
+    top: 155px;
+    left: -320px;
+}
+
+#ro{
+    top: 30px;
+    left: 300px;
+}
+
+#pat{
+    top: 170px;
+    left: 300px;
+}
+
+#lu{
+    left: -310px;
+    top: 40px;
+}

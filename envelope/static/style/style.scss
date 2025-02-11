@@ -1,0 +1,21 @@
+@import 'font';
+@import 'envelope1';
+@import 'envelope2';
+@import 'flower';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $bg-color;
+    font-family: $font;
+}
+
